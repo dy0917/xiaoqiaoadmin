@@ -1,0 +1,101 @@
+
+
+
+
+//transition
+
+@mixin transition($transition...) {
+	-moz-transition:    $transition;
+	-o-transition:      $transition;
+	-webkit-transition: $transition;
+	transition:         $transition;
+}
+@mixin transition-property($property...) {
+	-moz-transition-property:    $property;
+	-o-transition-property:      $property;
+	-webkit-transition-property: $property;
+	transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+	-moz-transition-property:    $duration;
+	-o-transition-property:      $duration;
+	-webkit-transition-property: $duration;
+	transition-property:         $duration;
+}
+@mixin transition-timing-function($timing...) {
+	-moz-transition-timing-function:    $timing;
+	-o-transition-timing-function:      $timing;
+	-webkit-transition-timing-function: $timing;
+	transition-timing-function:         $timing;
+}
+@mixin transition-delay($delay...) {
+	-moz-transition-delay:    $delay;
+	-o-transition-delay:      $delay;
+	-webkit-transition-delay: $delay;
+	transition-delay:         $delay;
+}
+
+//transition end
+
+
+@mixin Opacity($value){
+	$IEValue: $value*100;
+	opacity: $value;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+	filter: alpha(opacity=$IEValue);
+}
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+
+
+
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+     -moz-box-sizing: $box-model; // Firefox <= 19
+     box-sizing: $box-model;
+ }
+
+ @mixin no-select {
+ 	-webkit-touch-callout: none;
+ 	-webkit-user-select: none;
+ 	-khtml-user-select: none;
+ 	-moz-user-select: none;
+ 	-ms-user-select: none;
+ 	user-select: none;
+ }
+
+
+
+
+@mixin font-size($sizeValue: 12 ){
+  font-size: $sizeValue + px; //fallback for old browsers
+  font-size: (0.125 * $sizeValue) + rem;
+}
+
+@mixin line-height($heightValue: 12 ){
+	line-height: $heightValue + px; //fallback for old browsers
+	line-height: (0.125 * $heightValue) + rem;
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
+}
+
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+

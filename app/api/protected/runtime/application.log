@@ -1,0 +1,513 @@
+2014/11/14 21:55:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/test
+---
+2014/11/14 22:28:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "create".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('create')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('test/create')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/test
+HTTP_REFERER=http://localhost:9000/
+---
+2014/11/14 22:28:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "create".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('create')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('test/create')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/test
+HTTP_REFERER=http://localhost:9000/
+---
+2014/11/14 22:30:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "create".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('create')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('test/create')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/test
+HTTP_REFERER=http://localhost:9000/
+---
+2014/11/14 22:30:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "create".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('create')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('test/create')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/test
+HTTP_REFERER=http://localhost:9000/
+---
+2014/11/16 03:47:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "WriteImage/create".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('WriteImage/crea...')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/WriteImage?CKEditor=editor1&CKEditorFuncNum=1&langCode=en
+---
+2014/11/16 03:52:36 [error] [php] mkdir(): Permission denied (/work/NetBeansProjects/etrip/app/api/protected/controllers/ImageCreateController.php:36)
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(286): ImageCreateController->runAction()
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(265): ImageCreateController->runActionWithFilters()
+#3 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): ImageCreateController->run()
+#4 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /work/NetBeansProjects/etrip/app/api/index.php(13): CWebApplication->run()
+REQUEST_URI=/imageCreate/writeImage?CKEditor=editor1&CKEditorFuncNum=1&langCode=en
+in /work/NetBeansProjects/etrip/app/api/protected/controllers/ImageCreateController.php (36)
+in /work/NetBeansProjects/etrip/app/api/index.php (13)
+2014/11/18 02:43:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api/
+---
+2014/11/18 02:45:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/site/test".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/site/test')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api/site/test
+---
+2014/11/18 02:45:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/read".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/read')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api/site/
+---
+2014/11/18 02:46:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/login
+HTTP_REFERER=http://localhost/api/site/
+---
+2014/11/18 02:46:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/login
+HTTP_REFERER=http://localhost/site/login
+---
+2014/11/18 02:46:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/contact
+HTTP_REFERER=http://localhost/site/login
+---
+2014/11/18 02:46:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/test
+---
+2014/11/18 02:46:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/index
+HTTP_REFERER=http://localhost/site/test
+---
+2014/11/18 02:46:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/test
+---
+2014/11/18 02:47:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('test/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/test/tttt
+---
+2014/11/18 02:48:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('test/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/test/read
+---
+2014/11/18 02:49:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('test/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/test/asdfadfasdf
+---
+2014/11/18 02:49:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('test/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/test/asdfadfasdf
+---
+2014/11/18 02:51:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('test/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/test/tttt
+---
+2014/11/18 02:52:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/tttt
+---
+2014/11/18 02:52:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "tttt".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('tttt')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('tttt')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('test/tttt')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/test/tttt
+---
+2014/11/18 02:52:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "tttt".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('tttt')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('tttt')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('test/tttt')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/test/tttt
+---
+2014/11/18 02:55:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('test/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/test/dddd
+---
+2014/11/18 02:57:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/read".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/read')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api/test
+---
+2014/11/18 02:57:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api
+---
+2014/11/18 03:02:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api/
+---
+2014/11/18 03:04:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api
+---
+2014/11/18 03:04:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/read".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/read')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api/test
+---
+2014/11/18 03:06:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/read".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/read')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api/test
+---
+2014/11/18 03:06:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/read".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/read')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api/test
+---
+2014/11/18 03:07:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/read".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/read')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api/test
+---
+2014/11/18 03:07:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api/
+---
+2014/11/18 03:07:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/read".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/read')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api/test
+---
+2014/11/18 03:07:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api
+---
+2014/11/18 03:36:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "WriteImage/create".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('WriteImage/crea...')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/WriteImage
+HTTP_REFERER=http://localhost:9000/
+---
+2014/11/18 03:37:55 [error] [php] mkdir(): Permission denied (/work/NetBeansProjects/etrip/app/api/protected/controllers/TestController.php:41)
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(286): TestController->runAction()
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(265): TestController->runActionWithFilters()
+#3 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): TestController->run()
+#4 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /work/NetBeansProjects/etrip/app/api/index.php(13): CWebApplication->run()
+REQUEST_URI=/test/WriteImage
+in /work/NetBeansProjects/etrip/app/api/protected/controllers/TestController.php (41)
+in /work/NetBeansProjects/etrip/app/api/index.php (13)
+2014/11/18 03:44:49 [error] [php] mkdir(): Permission denied (/work/NetBeansProjects/etrip/app/api/protected/controllers/TestController.php:41)
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(286): TestController->runAction()
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(265): TestController->runActionWithFilters()
+#3 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): TestController->run()
+#4 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /work/NetBeansProjects/etrip/app/api/index.php(13): CWebApplication->run()
+REQUEST_URI=/test/WriteImage
+in /work/NetBeansProjects/etrip/app/api/protected/controllers/TestController.php (41)
+in /work/NetBeansProjects/etrip/app/api/index.php (13)
+2014/11/18 03:46:42 [error] [php] mkdir(): Permission denied (/work/NetBeansProjects/etrip/app/api/protected/controllers/TestController.php:42)
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(286): TestController->runAction()
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(265): TestController->runActionWithFilters()
+#3 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): TestController->run()
+#4 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /work/NetBeansProjects/etrip/app/api/index.php(13): CWebApplication->run()
+REQUEST_URI=/test/WriteImage
+in /work/NetBeansProjects/etrip/app/api/protected/controllers/TestController.php (42)
+in /work/NetBeansProjects/etrip/app/api/index.php (13)
+2014/11/18 03:51:36 [error] [php] mkdir(): Permission denied (/work/NetBeansProjects/etrip/app/api/protected/controllers/TestController.php:42)
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(286): TestController->runAction()
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(265): TestController->runActionWithFilters()
+#3 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): TestController->run()
+#4 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /work/NetBeansProjects/etrip/app/api/index.php(13): CWebApplication->run()
+REQUEST_URI=/test/WriteImage
+in /work/NetBeansProjects/etrip/app/api/protected/controllers/TestController.php (42)
+in /work/NetBeansProjects/etrip/app/api/index.php (13)
+2014/11/18 03:55:19 [error] [php] file_put_contents(/work/NetBeansProjects/etrip/app/api/images/): failed to open stream: Is a directory (/work/NetBeansProjects/etrip/app/api/protected/controllers/TestController.php:44)
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(286): TestController->runAction()
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(265): TestController->runActionWithFilters()
+#3 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): TestController->run()
+#4 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /work/NetBeansProjects/etrip/app/api/index.php(13): CWebApplication->run()
+REQUEST_URI=/test/WriteImage
+in /work/NetBeansProjects/etrip/app/api/protected/controllers/TestController.php (44)
+in /work/NetBeansProjects/etrip/app/api/index.php (13)
+2014/11/18 03:57:23 [error] [php] file_put_contents(/work/NetBeansProjects/etrip/app/api/images/): failed to open stream: Is a directory (/work/NetBeansProjects/etrip/app/api/protected/controllers/TestController.php:44)
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(286): TestController->runAction()
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(265): TestController->runActionWithFilters()
+#3 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): TestController->run()
+#4 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /work/NetBeansProjects/etrip/app/api/index.php(13): CWebApplication->run()
+REQUEST_URI=/test/WriteImage
+in /work/NetBeansProjects/etrip/app/api/protected/controllers/TestController.php (44)
+in /work/NetBeansProjects/etrip/app/api/index.php (13)
+2014/11/18 03:58:03 [error] [php] file_put_contents(/work/NetBeansProjects/etrip/app/api/images/test.png): failed to open stream: Permission denied (/work/NetBeansProjects/etrip/app/api/protected/controllers/TestController.php:44)
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(286): TestController->runAction()
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(265): TestController->runActionWithFilters()
+#3 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): TestController->run()
+#4 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /work/NetBeansProjects/etrip/app/api/index.php(13): CWebApplication->run()
+REQUEST_URI=/test/WriteImage
+in /work/NetBeansProjects/etrip/app/api/protected/controllers/TestController.php (44)
+in /work/NetBeansProjects/etrip/app/api/index.php (13)
+2014/11/19 03:44:37 [error] [php] json_decode() expects parameter 1 to be string, array given (/home/adminuser/NetBeansProject/yii/framework/web/helpers/CJSON.php:327)
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/actions/CInlineAction.php(49): TestController->actionWriteImage()
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(286): TestController->runAction()
+#3 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(265): TestController->runActionWithFilters()
+#4 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): TestController->run()
+#5 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#6 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#7 /work/NetBeansProjects/etrip/app/api/index.php(13): CWebApplication->run()
+REQUEST_URI=/test/WriteImage
+in /work/NetBeansProjects/etrip/app/api/protected/controllers/TestController.php (36)
+in /work/NetBeansProjects/etrip/app/api/index.php (13)
+2014/11/20 04:32:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/login
+HTTP_REFERER=http://api.localhost/
+---
+2014/11/20 04:32:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/contact
+HTTP_REFERER=http://api.localhost/site/login
+---
+2014/11/20 04:32:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "read".' in /home/adminuser/NetBeansProject/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CController.php(270): CController->missingAction('read')
+#1 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(282): CController->run('read')
+#2 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/read')
+#3 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/index
+HTTP_REFERER=http://api.localhost/site/page/view/about
+---
+2014/11/20 04:36:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api
+---
+2014/11/20 04:36:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/api
+---
+2014/11/20 05:10:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "users".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/users
+HTTP_REFERER=http://localhost/
+---
+2015/01/05 04:02:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "users".' in /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/adminuser/NetBeansProject/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('users')
+#1 /home/adminuser/NetBeansProject/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /work/NetBeansProjects/etrip/app/api/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/users
+HTTP_REFERER=http://localhost:9000/
+---
