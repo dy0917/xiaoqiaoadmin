@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-var apiPath = "http://api.editor";
+var apiPath = "http://local.test.api.xiaoqiaonz.com/";
 var app = angular
         .module('xiaoqiaoApp', [
             'ngAnimate',

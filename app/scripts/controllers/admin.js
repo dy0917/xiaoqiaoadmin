@@ -11,18 +11,19 @@ angular.module('xiaoqiaoApp')
   .controller('AdminCtrl', function ($scope,$http) {
       $scope.save=function(){
 var sHTML = $('#summernote').code();
-
+var json={ body:sHTML,title:"aaaaaaaaaaaaaaaaaaa"};
+var json = JSON.stringify(json);
   $http({
-                url: apiPath+"/test/WriteImage",
+                url: apiPath+"/blog/",
                 method: "POST",
-                data:{ "content":sHTML},
+                data:json,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(data, status, headers, config) {
         
                     // editor.insertImage($editable, src, photoName);
                 
               //  $scope.persons = data; // assign  $scope.persons here as promise is resolved here 
-       
+       console.log(data);
             }).error(function(data, status, headers, config) {
                // $scope.status = status;
                console.log("error");
