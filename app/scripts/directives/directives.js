@@ -6,8 +6,33 @@
 
 
 'use strict';
-app.directive('aside',function(){
-	return{
-		templateUrl:'views/partials/aside.html'
-	};
+app.directive('aside', function() {
+    return{
+        templateUrl: 'views/partials/aside.html'
+    };
+});
+
+app.directive('validFile', function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, el, attrs, ngModel) {
+
+
+            el.bind('change', function() {
+                scope.$apply(function() {
+
+                    if (!el.val())
+                    {
+                
+                        scope.isFileExist = true;
+                    } else {
+                        scope.isFileExist = false;
+
+                    }
+                });
+            });
+        }
+
+    };
+
 });

@@ -1,4 +1,4 @@
-<body >
+<body ng-controller="AdminCtrl">
 
 
 
@@ -10,8 +10,12 @@
 
 
 <input type="button" ng-click="save()" value="save"/>
+<div>title:<input type="text" ng-model="title"></div>
+<div>Feature image:<input id="featureImg" type="file" valid-file ng-model="imageurluploader">
+    <input type="button" value="set Feature image" ng-click="uploadimage()" ng-disabled="isFileExist!==false"/>
+<img  ng-src="{{featuredImgURL}}">
+</div>
         <div id="summernote"></div>
-    
 </main>
 </body>
 <script type="text/javascript">

@@ -87,6 +87,6 @@ return array(
     'params' => array(
         // this is used in contact page
         'adminEmail' => 'webmaster@example.com',
-        'diskpath' => '/work/NetBeansProjects/etrip/app/api'
+        'diskpath' => '/work/NetBeansProjects/xiaoqiaoadmin/app/api'
     ),
 );

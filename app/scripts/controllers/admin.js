@@ -8,29 +8,54 @@
  * Controller of the xtripApp
  */
 angular.module('xiaoqiaoApp')
-  .controller('AdminCtrl', function ($scope,$http) {
-      $scope.save=function(){
-var sHTML = $('#summernote').code();
-var json={ body:sHTML,title:"aaaaaaaaaaaaaaaaaaa"};
-var json = JSON.stringify(json);
-  $http({
-                url: apiPath+"/blog/",
-                method: "POST",
-                data:json,
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-            }).success(function(data, status, headers, config) {
-        
-                    // editor.insertImage($editable, src, photoName);
+        .controller('AdminCtrl', function($scope, $http) {
+            $scope.save = function() {
+                var sHTML = $('#summernote').code();
+                var json = {body: sHTML, title: $scope.title,FeatureIamge:$scope.featuredImgURL};
+                var json = JSON.stringify(json);
+                $http({
+                    url: apiPath + "/blog/",
+                    method: "POST",
+                    data: json,
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function(data, status, headers, config) {
+
+          alert("ok");
+                }).error(function(data, status, headers, config) {
                 
-              //  $scope.persons = data; // assign  $scope.persons here as promise is resolved here 
-       console.log(data);
-            }).error(function(data, status, headers, config) {
-               // $scope.status = status;
-               console.log("error");
-            });
-};
-      
-      
+                    console.log("error");
+                });
+            };
+
+            $scope.uploadimage = function() {
+                var files = $("#featureImg").prop("files");
+
+                var name = files[0].name;
+                var imagetype = files[0].type;
+                var filesize = files[0].size;
+
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var photoName = name.replace(/[)\(]/gi, '');
+                    photoName = photoName.replace(/\s/g, '_');
+                    var target = getTarget(e, "pural");
+                    var src = target.result;
+                    $http({
+                        url: apiPath + "/test/WriteImage",
+                        method: "POST",
+                        data: {"imagename": photoName, "src": src, "type": imagetype},
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                    }).success(function(data, status, headers, config) {
+                        $scope.featuredImgURL = "http://"+data;
+                    }).error(function(data, status, headers, config) {
+
+                    });
+
+                }, reader.readAsDataURL(files[0]);
+            };
+
+
+
 //  $('#summernote').summernote(
 //  {
 //  onImageUpload: function(files, editor, $editable) {
@@ -81,5 +106,6 @@ var json = JSON.stringify(json);
 //}
 //  );
 
-  
-  });
+
+        });
+
