@@ -8,23 +8,28 @@
  * Controller of the xtripApp
  */
 angular.module('xiaoqiaoApp')
-        .controller('AdminCtrl', function($scope, $http) {
+        .controller('AdminCtrl', function($scope, $http, callback) {
             $scope.save = function() {
                 var sHTML = $('#summernote').code();
-                var json = {body: sHTML, title: $scope.title,FeatureIamge:$scope.featuredImgURL};
+                var json = {body: sHTML, title: $scope.title, FeatureIamge: $scope.featuredImgURL};
                 var json = JSON.stringify(json);
-                $http({
-                    url: apiPath + "/blog/",
-                    method: "POST",
-                    data: json,
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                }).success(function(data, status, headers, config) {
-
-          alert("ok");
-                }).error(function(data, status, headers, config) {
-                
-                    console.log("error");
+                callback.http(apiPath + "/blog/", "POST", json, function(data) {
+                    alert(data)
+                }, function() {
+                    console.log("error")
                 });
+//                $http({
+//                    url: apiPath + "/blog/",
+//                    method: "POST",
+//                    data: json,
+//                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+//                }).success(function(data, status, headers, config) {
+//
+//                    alert("ok");
+//                }).error(function(data, status, headers, config) {
+//
+//                    console.log("error");
+//                });
             };
 
             $scope.uploadimage = function() {
@@ -46,7 +51,7 @@ angular.module('xiaoqiaoApp')
                         data: {"imagename": photoName, "src": src, "type": imagetype},
                         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                     }).success(function(data, status, headers, config) {
-                        $scope.featuredImgURL = "http://"+data;
+                        $scope.featuredImgURL = "http://" + data;
                     }).error(function(data, status, headers, config) {
 
                     });

@@ -8,26 +8,24 @@
  *
  * Main module of the application.
  */
-app.factory('loginService', function($http) {
+app.factory('callback', function($http) {
     return {
-        
-        login: function()
+        http: function(url, method, data, successcallback, errorcallback)
         {
             $http({
-                url: apiPath+"/test",
-                method: "POST",
-                data: "asdfasdfa",
+                url: url,
+                method: method,
+                data: data,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(data, status, headers, config) {
-              //  $scope.persons = data; // assign  $scope.persons here as promise is resolved here 
-              console.log("ok");
+                //  $scope.persons = data; // assign  $scope.persons here as promise is resolved here 
+                successcallback(data);
             }).error(function(data, status, headers, config) {
-               // $scope.status = status;
-               console.log("error");
+                // $scope.status = status;
+                errorcallback(data);
             });
 
         },
-        
     };
 
 });

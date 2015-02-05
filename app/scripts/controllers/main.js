@@ -8,7 +8,7 @@
  * Controller of the xtripApp
  */
 angular.module('xiaoqiaoApp')
-        .controller('MainCtrl', function($scope, loginService) {
+        .controller('MainCtrl', function($scope) {
 
             setTimeout(function() {
                 var container = document.querySelector('#container');

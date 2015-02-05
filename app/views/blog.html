@@ -1,1 +1,16 @@
-<p>This is the aasdfasdfasdf view.</p>
+
+<div id="container">
+    <div ng-repeat="blog in blogs">
+
+
+        <div class="item-title">{{blog.title}}</div>
+
+
+
+        <div class="item-date">{blog.createTime}}</div>
+        <img  ng-src="{{blog.imgurl}}">
+        <a href="#/blog/{{blog.blogid}}">edit</a>
+    </div>
+
+
+</div>

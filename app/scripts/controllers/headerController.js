@@ -8,7 +8,7 @@
  * Controller of the xtripApp
  */
 angular.module('xiaoqiaoApp')
-  .controller('headerController', function ($scope,loginService) {
+  .controller('headerController', function ($scope) {
       $scope.loginedUser=null;
 
         $scope.login=function(){

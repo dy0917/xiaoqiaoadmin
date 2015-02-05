@@ -8,7 +8,12 @@
  * Controller of the xtripApp
  */
 angular.module('xiaoqiaoApp')
-  .controller('BlogCtrl', function ($scope,$http) {
+        .controller('BlogCtrl', function($scope, $http) {
 
-  
-  });
+
+
+            $scope.getBlogs = function()
+            {
+$http
+            }
+        });
