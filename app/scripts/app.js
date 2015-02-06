@@ -30,18 +30,18 @@ var app = angular
                         templateUrl: 'views/admin.html',
                         controller: 'AdminCtrl'
                     })
-//                    .when('/blog', {
-//                        templateUrl: 'views/blog.html',
-//                        controller: 'BlogCtrl'
-//                    })
+                    .when('/blog', {
+                        templateUrl: 'views/blog.html',
+                        controller: 'BlogCtrl'
+                    })
 //                    .when('/contact', {
-//                        templateUrl: 'views/product.html',
-//                        controller: 'ProductCtrl'
-//                    })
-//                    .when('/product', {
 //                        templateUrl: 'views/contact.html',
 //                        controller: 'ContactCtrl'
 //                    })
+                    .when('/product', {
+                        templateUrl: 'views/product.html',
+                        controller: 'ProductCtrl'
+                    })
 //                    .when('/blog/:blogid', {
 //                        templateUrl: 'views/oneblog.html',
 //                        controller: 'OneBlogCtrl'
@@ -49,6 +49,8 @@ var app = angular
                     .otherwise({
                         redirectTo: '/'
                     });
+
             //  redactorOptions.buttons = ['formatting', '|', 'bold', 'italic']; 
         });
+
 

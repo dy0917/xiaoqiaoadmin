@@ -8,8 +8,10 @@
  * Controller of the xtripApp
  */
 angular.module('xiaoqiaoApp')
-  .controller('ProductCtrl', function ($scope,$http) {
-   
+        .controller('ProductCtrl', function($scope, $http, facotryblogs) {
 
-  
-  });
+
+            $scope.blogs = facotryblogs.getFamily2().then(function(data) {
+                $scope.blogs = data;
+            });
+        });

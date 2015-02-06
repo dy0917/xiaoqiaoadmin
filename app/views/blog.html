@@ -9,7 +9,8 @@
 
         <div class="item-date">{blog.createTime}}</div>
         <img  ng-src="{{blog.imgurl}}">
-        <a href="#/blog/{{blog.blogid}}">edit</a>
+        <a ng-click="update(blog)">edit</a>
+
     </div>
 
 

@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * @ngdoc overview
  * @name xtripApp
@@ -8,7 +7,7 @@
  *
  * Main module of the application.
  */
-app.factory('callback', function($http) {
+app.service('servicecallback', function($http) {
     return {
         http: function(url, method, data, successcallback, errorcallback)
         {
@@ -24,8 +23,52 @@ app.factory('callback', function($http) {
                 // $scope.status = status;
                 errorcallback(data);
             });
-
         },
+        test: function()
+        {
+            console.log("test");
+        }
     };
+});
+app.factory('facotryblogs', function(servicecallback, $http) {
 
+//    var blogs = [{name: "adfafdadf"}, {name: "wwwwwwwwwwwwwwwerwer"}];
+    var factory = [];
+    var blogs;
+    var that = this;
+    factory.getblogs = function() {
+        return $http.get(apiPath + "/blog/").then(function(result) {
+            var blogs = result.data;
+            return blogs;
+        });
+    };
+    factory.method1 = function() {
+        console.log(blogs);
+    };
+    factory.method2 = function() {
+        console.log("method2");
+    };
+    return factory;
+});
+app.factory('blogservice', function() {
+
+//    var blogs = [{name: "adfafdadf"}, {name: "wwwwwwwwwwwwwwwerwer"}];
+    var blog = {};
+    return {
+        init: function(blogObj)
+        {
+            blog = blogObj;
+        },
+        getBlog: function()
+        {
+            return blog;
+        },
+        settitle: function(title) {
+            blog.title = title;
+        },
+        getTitle: function() {
+            return  blog.title;
+        }
+
+    };
 });

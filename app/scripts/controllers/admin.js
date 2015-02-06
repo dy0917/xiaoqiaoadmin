@@ -8,28 +8,37 @@
  * Controller of the xtripApp
  */
 angular.module('xiaoqiaoApp')
-        .controller('AdminCtrl', function($scope, $http, callback) {
+
+        .controller('AdminCtrl', function($scope, $http, servicecallback, blogservice) {
+
+            $scope.blog = {};
+            $('#summernote').summernote();
+            if (blogservice.getBlog())
+            {
+                $scope.blog = blogservice.getBlog();
+                $('#summernote').code($scope.blog.body);
+            }
+
+
             $scope.save = function() {
                 var sHTML = $('#summernote').code();
-                var json = {body: sHTML, title: $scope.title, FeatureIamge: $scope.featuredImgURL};
-                var json = JSON.stringify(json);
-                callback.http(apiPath + "/blog/", "POST", json, function(data) {
-                    alert(data)
+//                var json = {body: sHTML, title: $scope.blog.title, FeatureIamge: $scope.blog.FeaturedImgURL};
+                var json = JSON.stringify($scope.blog);
+                var path = apiPath + "/blog/";
+                if ($scope.blog.Blogid)
+                {
+                    var path = apiPath + "/blog/update";
+                }
+
+                servicecallback.http(path, "POST", json, function(data) {
+                    $('#summernote').code("");
+                    $scope.blog = null;
+
                 }, function() {
-                    console.log("error")
+
                 });
-//                $http({
-//                    url: apiPath + "/blog/",
-//                    method: "POST",
-//                    data: json,
-//                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-//                }).success(function(data, status, headers, config) {
-//
-//                    alert("ok");
-//                }).error(function(data, status, headers, config) {
-//
-//                    console.log("error");
-//                });
+
+
             };
 
             $scope.uploadimage = function() {
