@@ -8,8 +8,8 @@
  *
  * Main module of the application.
  */
-//var apiPath = "http://local.test.api.xiaoqiaonz.com/";
-var apiPath = "http://test.api.xiaoqiaonz.com/index.php";
+var apiPath = "http://local.test.api.xiaoqiaonz.com/";
+//var apiPath = "http://test.api.xiaoqiaonz.com/index.php";
 var app = angular
         .module('xiaoqiaoApp', [
             'ngAnimate',

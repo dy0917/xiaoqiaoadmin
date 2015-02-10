@@ -22,6 +22,8 @@ app.service('servicecallback', function($http) {
             }).error(function(data, status, headers, config) {
                 // $scope.status = status;
                 errorcallback(data);
+            }).then(function() {
+
             });
         },
         test: function()
@@ -32,7 +34,6 @@ app.service('servicecallback', function($http) {
 });
 app.factory('facotryblogs', function(servicecallback, $http) {
 
-//    var blogs = [{name: "adfafdadf"}, {name: "wwwwwwwwwwwwwwwerwer"}];
     var factory = [];
     var blogs;
     var that = this;
@@ -52,7 +53,6 @@ app.factory('facotryblogs', function(servicecallback, $http) {
 });
 app.factory('blogservice', function() {
 
-//    var blogs = [{name: "adfafdadf"}, {name: "wwwwwwwwwwwwwwwerwer"}];
     var blog = {};
     return {
         init: function(blogObj)
@@ -69,6 +69,43 @@ app.factory('blogservice', function() {
         getTitle: function() {
             return  blog.title;
         }
+    };
+});
 
+app.factory('loginservice', function($cookieStore, $location, servicecallback, $rootScope) {
+
+    return {
+        login: function(blogObj)
+        {
+            var hash = CryptoJS.MD5(blogObj.password);
+            blogObj.password = hash.toString();
+            var path = apiPath + "/site/login";
+            var json = JSON.stringify(blogObj);
+            servicecallback.http(path, "POST", json, function(data) {
+
+                if (data.error != "ERROR_USERNAME_INVALID")
+                {
+
+                    $rootScope.user = data;
+                    $rootScope.$broadcast("popuplogin", false);
+                }
+                else {
+
+                    $rootScope.$broadcast("popuplogin", true);
+                }
+
+
+            }, function() {
+
+            });
+
+
+        },
+        checklogin: function()
+        {
+            if ($rootScope.user == null) {
+                $location.path('/');
+            }
+        }
     };
 });

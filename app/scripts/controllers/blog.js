@@ -8,10 +8,15 @@
  * Controller of the xtripApp
  */
 angular.module('xiaoqiaoApp')
-        .controller('BlogCtrl', function($scope, facotryblogs, $http, $rootScope, blogservice, $location) {
+        .controller('BlogCtrl', function($scope, facotryblogs, $rootScope, blogservice, $location, loginservice
+
+                ) {
+
+
 
             $scope.blogs = [];
 
+            loginservice.checklogin();
 
             if ($rootScope.blogs == null) {
                 $scope.blogs = facotryblogs.getblogs().then(function(data) {
@@ -24,14 +29,13 @@ angular.module('xiaoqiaoApp')
             }
             $scope.getBlogs = function()
             {
-                console.log("adfadfas");
+
             };
             $scope.update = function(blog)
             {
 
                 blogservice.init(blog);
-                console.log(blogservice);
                 $location.path('/admin/');
-
+                ;
             }
         });

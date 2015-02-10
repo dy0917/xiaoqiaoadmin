@@ -1,15 +1,28 @@
-<div class="bs-example">
-<form role="form" name="form1">
-  <div class="form-group">
-  	<p>Welcome : <span>{{user.mail}}</span></p>
-    <label for="exampleInputEmail1">Mail</label>
-    <input type="text" placeholder="Enter name"  class="form-control" ng-model="user.mail" required>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" placeholder="Password" id="exampleInputPassword1" class="form-control" ng-model="user.pass" required>
-  </div>
-  <button class="btn btn-default" type="submit" ng-click="login(user)" ng-disabled="form1.$invalid">Submit</button>
-  <p>{{msgtxt}}</p>
-</form>
+<div ng-click="toggleLogin()" >
+    <div class="fade-bg"></div>
+
+    <div class="login-popup">
+
+
+        <div class="login-insert-part">
+
+            <h6><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Login</h6>
+            <form role="form" name="form1">
+                <div class="form-group">
+                    <!-- <p>Welcome : <span>{{user.mail}}</span></p> -->
+                    <label for="exampleInputEmail1"><i class="fa fa-envelope"></i></label>
+                    <input type="text" placeholder="Enter name"  class="form-control" ng-model="user.username" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1"><i class="fa fa-lock"></i></label>
+                    <input type="password" placeholder="Password" id="exampleInputPassword1" class="form-control" ng-model="user.password" required>
+                </div>
+                <div class="btn-shape btn1 center-position" type="submit" ng-click="login(user)" ng-disabled="form1.$invalid">Login</div>
+            </form>
+        </div>
+
+    </div>
+
+
+
 </div>

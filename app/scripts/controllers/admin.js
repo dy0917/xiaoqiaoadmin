@@ -9,8 +9,9 @@
  */
 angular.module('xiaoqiaoApp')
 
-        .controller('AdminCtrl', function($scope, $http, servicecallback, blogservice) {
+        .controller('AdminCtrl', function($scope, $http, servicecallback, blogservice, loginservice) {
 
+            loginservice.checklogin();
             $scope.blog = {};
             $('#summernote').summernote();
             if (blogservice.getBlog())
@@ -22,7 +23,7 @@ angular.module('xiaoqiaoApp')
 
             $scope.save = function() {
                 var sHTML = $('#summernote').code();
-//                var json = {body: sHTML, title: $scope.blog.title, FeatureIamge: $scope.blog.FeaturedImgURL};
+                $scope.blog.body = sHTML;
                 var json = JSON.stringify($scope.blog);
                 var path = apiPath + "/blog/";
                 if ($scope.blog.Blogid)

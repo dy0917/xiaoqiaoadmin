@@ -12,6 +12,12 @@ app.directive('aside', function() {
     };
 });
 
+app.directive('loginandregisterdirective', function() {
+    return{
+        templateUrl: 'views/partials/loginAndRegisterLightbox.html'
+    };
+});
+
 app.directive('validFile', function() {
     return {
         require: 'ngModel',
@@ -23,7 +29,7 @@ app.directive('validFile', function() {
 
                     if (!el.val())
                     {
-                
+
                         scope.isFileExist = true;
                     } else {
                         scope.isFileExist = false;

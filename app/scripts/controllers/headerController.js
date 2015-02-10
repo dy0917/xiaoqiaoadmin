@@ -8,20 +8,16 @@
  * Controller of the xtripApp
  */
 angular.module('xiaoqiaoApp')
-  .controller('headerController', function ($scope) {
-      $scope.loginedUser=null;
+        .controller('headerController', function($scope, loginservice, $rootScope) {
+            $scope.user = {};
+            $scope.islogindisplayed = true;
 
-        $scope.login=function(){
-          $scope.loginedUser={
-    "id": 1,
-    "name": "wewe2012"
+            $scope.login = function() {
+                loginservice.login($scope.user);
+            };
 
-}
-         var div=document.getElementById("test");
-         div.innerHTML ="";
-          $("#test").toggleClass("main");
-    console.log(div);
-    //      $scope.$broadcast("myEvent", {username: "user.username" });
-	//	loginService.login(data,$scope); //call login service
-	};
-  });
+            $scope.$on('popuplogin', function(event, bool) {
+                $scope.islogindisplayed = bool;
+            });
+
+        });
