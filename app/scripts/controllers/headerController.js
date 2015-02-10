@@ -17,6 +17,7 @@ angular.module('xiaoqiaoApp')
             };
 
             $scope.$on('popuplogin', function(event, bool) {
+                console.log(bool);
                 $scope.islogindisplayed = bool;
             });
 
