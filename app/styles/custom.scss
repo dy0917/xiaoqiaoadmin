@@ -172,6 +172,28 @@ aside{
 }
 
 
+.float-right-btn{
+position: relative;
+float: right;
+
+    width: 280px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    max-width: 350px; 
+    cursor: pointer;
+
+    color:#aaa;
+    font-size:14px;
+
+    &:hover{
+        color: #555;
+    }
+}
+
+
+
+
 .theme-slide{
     height: 450px;
     width: 100%;
