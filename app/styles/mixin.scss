@@ -53,6 +53,13 @@
 }
 
 
+@mixin box-shadow( $horiz, $vert , $blur , $spread , $color ){
+  -webkit-box-shadow: $horiz $vert $blur $spread $color;
+  -moz-box-shadow: $horiz $vert $blur $spread $color;
+  box-shadow: $horiz $vert $blur $spread $color;
+}
+
+
 
 
 @mixin box-sizing($box-model) {
