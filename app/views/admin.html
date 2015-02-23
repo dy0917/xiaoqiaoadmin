@@ -6,11 +6,22 @@
 
 
 
-    <!-- masonry======================= -->
-
+    <input type="button" ng-click="back()" value="back"/>
 
     <input type="button" ng-click="save()" value="save"/>
-    <div>title:<input type="text" ng-model="blog.title"></div>
+    <input type="button" ng-click="saveandback()" value="save & exit"/>
+    <input type="button" ng-click="delete()"  class="btn btn-danger" value="delete"/>
+    <div>title:<input type="text" ng-model="blog.title" >
+        <div>Status:<a  data-toggle="dropdown" class="dropdown-toggle">{{blog.BlogStatus}} <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <div ng-repeat="status in arrblogstatus">
+
+                    <li><a ng-click="setStatus({{status}})">{{status.BlogStatus}}</a></li>
+                </div>
+
+            </ul>
+        </div>
+    </div>
     <div>Feature image:<input id="featureImg" type="file" valid-file ng-model="blog.imageurluploader">
         <input type="button" value="set Feature image" ng-click="uploadimage()" ng-disabled="isFileExist !== false"/>
         <img  ng-src="{{blog.FeatureIamge}}">

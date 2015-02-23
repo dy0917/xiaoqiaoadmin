@@ -1,0 +1,25 @@
+<div id="divpopup">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{popup.title}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div>{{popup.body}}</div>
+                        <div ng-repeat="info in popup.infolst">
+                            <div class="item-title">{{info}}</div>
+                        </div>
+                        <div ng-if="doesoptionboxdisplay">
+                            <div  class="btn btn-lg btn-success btn-block" ng-click="execute(false)" >Yes</div>
+                            <div  class="btn btn-lg btn-success btn-block" ng-click="notexc(false)" >No</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

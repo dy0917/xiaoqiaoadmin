@@ -7,10 +7,12 @@
  *
  * Main module of the application.
  */
-app.service('servicecallback', function($http) {
+app.service('servicecallback', function($http, $rootScope) {
     return {
-        http: function(url, method, data, successcallback, errorcallback)
+        http: function(url, method, data, successcallback, errorcallback, afterfunction)
         {
+            $rootScope.$broadcast('isloading', true);
+
             $http({
                 url: url,
                 method: method,
@@ -18,12 +20,18 @@ app.service('servicecallback', function($http) {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(data, status, headers, config) {
                 //  $scope.persons = data; // assign  $scope.persons here as promise is resolved here 
+
                 successcallback(data);
-            }).error(function(data, status, headers, config) {
+            }).error(function(data, status, headers, config)
+            {
                 // $scope.status = status;
+                $rootScope.$broadcast('isloading', false);
                 errorcallback(data);
             }).then(function() {
-
+                $rootScope.$broadcast('isloading', false);
+                if (afterfunction) {
+                    afterfunction();
+                }
             });
         },
         test: function()
@@ -51,7 +59,7 @@ app.factory('facotryblogs', function(servicecallback, $http) {
     };
     return factory;
 });
-app.factory('blogservice', function() {
+app.factory('blogservice', function($rootScope, servicecallback, $location) {
 
     var blog = {};
     return {
@@ -68,12 +76,33 @@ app.factory('blogservice', function() {
         },
         getTitle: function() {
             return  blog.title;
+        },
+        delete: function(thisblog)
+        {
+            var popinfo = {object: thisblog, body: "Are you sure want to do this", afteraction: function(blog) {
+                    var path = apiPath + "/blog/delete";
+                    servicecallback.http(path, "POST", blog, function() {
+                        if ($rootScope.blogs) {
+                            var index = $rootScope.blogs.indexOf(blog);
+                            $rootScope.blogs.splice(index, 1);
+                        }
+                        $location.path('/blog/');
+                    }, function() {
+                    }, function() {
+                        var popinfo = {body: "Deleted"
+                        };
+                        $scope.$emit("ispopup", popinfo);
+                    });
+                }};
+
+            $rootScope.$broadcast('ispopup', popinfo);
+        },
+        removeFromList: function() {
         }
     };
 });
 
 app.factory('loginservice', function($cookieStore, $location, servicecallback, $rootScope) {
-
     return {
         login: function(blogObj)
         {
@@ -108,4 +137,32 @@ app.factory('loginservice', function($cookieStore, $location, servicecallback, $
             }
         }
     };
+});
+
+app.factory("imagereadservice", function($http, servicecallback) {
+    return {
+        readAndUploadImage: function(file, photoName, imagetype, test)
+        {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+
+                var target = getTarget(e, "pural");
+                var src = target.result;
+                $http({
+                    url: apiPath + "/test/WriteImage",
+                    method: "POST",
+                    data: {"imagename": photoName, "src": src, "type": imagetype},
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function(data, status, headers, config) {
+
+                    test(data);
+                }).error(function(data, status, headers, config) {
+
+                });
+
+
+
+            }, reader.readAsDataURL(file);
+        }
+    }
 });

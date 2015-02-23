@@ -1,17 +1,33 @@
 
 <div id="container">
-    <div ng-repeat="blog in blogs">
-
-
-        <div class="item-title">{{blog.title}}</div>
-
-
-
-        <div class="item-date">{blog.createTime}}</div>
-        <img  ng-src="{{blog.imgurl}}">
-        <a ng-click="update(blog)">edit</a>
-
+    <div class="row">
+        <div class="input-group custom-search-form">
+            <input type="text" class="form-control" placeholder="Search..." ng-model="searchText">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+            </span>
+        </div>
     </div>
+    <div  class="btn btn-lg btn-success btn-block" type="button" ng-click="newPost()" >New Post</div>
+    <table class="table">
+
+        <thead>
+        <th>Title</th>
+        <th>Create Time</th>
+        <th>Feature Image</th>
+        <th>Operation</th>
+        </thead>
+        <tr ng-repeat="blog in blogs| filter:searchText">
+
+            <td>{{blog.title}}</td>
+            <td>{{blog.createTime}}</td>
+            <td> <img  ng-src="{{blog.FeatureIamge}}"></td>
+            <td>   <a ng-click="update(blog)">edit</a>   <a ng-click="delete(blog)">delete</a></td>
+
+        </tr>
 
 
+    </table>
 </div>

@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * @ngdoc function
  * @name xtripApp.controller:MainCtrl
@@ -10,15 +9,62 @@
 angular.module('xiaoqiaoApp')
         .controller('headerController', function($scope, loginservice, $rootScope) {
             $scope.user = {};
+            $scope.popup = {};
             $scope.islogindisplayed = true;
+            $scope.ispopup = false;
+            $scope.doesoptionboxdisplay = false;
+
+            if (developmode == true)
+            {
+                $rootScope.user = {username: "test"};
+                $scope.islogindisplayed = false;
+            }
+
 
             $scope.login = function() {
                 loginservice.login($scope.user);
             };
 
+            $scope.execute = function(b)
+            {
+
+                $scope.popup.afteraction($scope.popup.object);
+                $scope.ispopup = b;
+
+            };
+            $scope.notexc = function(b)
+            {
+                $scope.popup = {};
+                $scope.ispopup = b;
+            };
             $scope.$on('popuplogin', function(event, bool) {
-                console.log(bool);
+
                 $scope.islogindisplayed = bool;
             });
+
+            $scope.$on('isloading', function(event, bool) {
+
+                $scope.isloading = bool;
+            });
+
+            $scope.$on('ispopup', function(event, pop) {
+
+                $scope.doesoptionboxdisplay = false;
+                $scope.popup = pop;
+                $scope.ispopup = true;
+                if (pop.afteraction)//optional box
+                {
+                    $scope.doesoptionboxdisplay = true;
+                }
+                else {//info box
+                    $("#divpopup").fadeToggle();
+                    setTimeout(function() {
+                        $("#divpopup").fadeOut(500, function() {
+                            $scope.ispopup = false;
+                        });
+                    }, 1000);
+                }
+            });
+
 
         });

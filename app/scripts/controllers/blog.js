@@ -12,9 +12,7 @@ angular.module('xiaoqiaoApp')
 
                 ) {
 
-
-
-            $scope.blogs = [];
+            $scope.blogs = $rootScope.blogs;
 
             loginservice.checklogin();
 
@@ -27,15 +25,22 @@ angular.module('xiaoqiaoApp')
             else {
                 $scope.blogs = $rootScope.blogs;
             }
-            $scope.getBlogs = function()
-            {
 
-            };
             $scope.update = function(blog)
             {
-
                 blogservice.init(blog);
                 $location.path('/admin/');
-                ;
-            }
+            };
+            $scope.newPost = function()
+            {
+                blogservice.init({});
+                $location.path('/admin/');
+            };
+
+            $scope.delete = function(blog)
+            {
+                blogservice.delete(blog);
+            };
+
+
         });

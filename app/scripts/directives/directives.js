@@ -17,6 +17,11 @@ app.directive('loginandregisterdirective', function() {
         templateUrl: 'views/partials/loginAndRegisterLightbox.html'
     };
 });
+app.directive('popupbox', function() {
+    return{
+        templateUrl: 'views/partials/popupbox.html'
+    };
+});
 
 app.directive('validFile', function() {
     return {
