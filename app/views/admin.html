@@ -2,30 +2,45 @@
 
 
 
-<main style="top: 100px;">
+    <main style="top: 100px;">
 
 
 
-    <input type="button" ng-click="back()" value="back"/>
 
-    <input type="button" ng-click="save()" value="save"/>
-    <input type="button" ng-click="saveandback()" value="save & exit"/>
-    <input type="button" ng-click="delete()"  class="btn btn-danger" value="delete"/>
-    <div>title:<input type="text" ng-model="blog.title" >
-        <div>Status:<a  data-toggle="dropdown" class="dropdown-toggle">{{blog.BlogStatus}} <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <div ng-repeat="status in arrblogstatus">
+        <div class="create-new-blog-section">
+            <input class="new-blog-title" type="text" ng-model="blog.title" placeholder="Please insert your title here.">
+            <div class="dropdown">
+                <span><h2>Set your article status: &nbsp;</h2></span>
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">{{blog.BlogStatus}}  <span class="caret"></span></button>
 
-                    <li><a ng-click="setStatus({{status}})">{{status.BlogStatus}}</a></li>
-                </div>
+                <ul class="dropdown-menu">
+                    <div ng-repeat="status in arrblogstatus">
+                        <li><a ng-click="setStatus({{status}})">{{status.BlogStatus}}</a></li>
+                    </div>
+                </ul>
+            </div>
 
-            </ul>
         </div>
-    </div>
-    <div>Feature image:<input id="featureImg" type="file" valid-file ng-model="blog.imageurluploader">
-        <input type="button" value="set Feature image" ng-click="uploadimage()" ng-disabled="isFileExist !== false"/>
-        <img  ng-src="{{blog.FeatureIamge}}">
-    </div>
-    <div id="summernote"></div>
-</main>
+        <div style="margin-bottom:30px;">
+            <h2>Feature image:</h2>
+            <input id="featureImg" type="file" valid-file ng-model="blog.imageurluploader">
+            <img class="set-feature-image"  ng-src="{{blog.FeatureIamge}}">
+            <input type="button" class="btn btn-primary"  value="set Feature image" ng-click="uploadimage()" ng-disabled="isFileExist !== false"/>
+        </div>
+
+
+
+
+        <div id="summernote"></div>
+
+
+
+        <div class="container-fluid" style="margin:20px 0;">
+            <input type="button" ng-click="back()" class="btn btn-default" value="back"/>
+
+            <input type="button" ng-click="save()" class="btn btn-success" value="save"/>
+            <input type="button" ng-click="saveandback()" class="btn btn-success" value="save & exit"/>
+            <input type="button" ng-click="delete()"  class="btn btn-danger" value="delete"/>
+        </div>
+    </main>
 </body>

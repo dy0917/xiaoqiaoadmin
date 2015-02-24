@@ -1,6 +1,8 @@
 
-<div id="container">
-    <div class="row">
+
+
+<div id="container" style="padding-top:50px;">
+    <div class="row col-xs-6" style="margin-bottom: 50px">
         <div class="input-group custom-search-form">
             <input type="text" class="form-control" placeholder="Search..." ng-model="searchText">
             <span class="input-group-btn">
@@ -10,24 +12,25 @@
             </span>
         </div>
     </div>
-    <div  class="btn btn-lg btn-success btn-block" type="button" ng-click="newPost()" >New Post</div>
-    <table class="table">
+    <div class="col-xs-3">
+        <div  class="btn btn-sm btn-success btn-block " type="button" ng-click="newPost()" >New Post</div></div>
+        <table class="table">
 
-        <thead>
-        <th>Title</th>
-        <th>Create Time</th>
-        <th>Feature Image</th>
-        <th>Operation</th>
-        </thead>
-        <tr ng-repeat="blog in blogs| filter:searchText">
+            <thead>
+                <th>Title</th>
+                <th>Create Time</th>
+                <th>Feature Image</th>
+                <th>Operation</th>
+            </thead>
+            <tr ng-repeat="blog in blogs| filter:searchText">
 
-            <td>{{blog.title}}</td>
-            <td>{{blog.createTime}}</td>
-            <td> <img  ng-src="{{blog.FeatureIamge}}"></td>
-            <td>   <a ng-click="update(blog)">edit</a>   <a ng-click="delete(blog)">delete</a></td>
+                <td>{{blog.title}}</td>
+                <td>{{blog.createTime}}</td>
+                <td> <img  ng-src="{{blog.FeatureIamge}}"></td>
+                <td>   <a ng-click="update(blog)">edit</a>   <a ng-click="delete(blog)">delete</a></td>
 
-        </tr>
+            </tr>
 
 
-    </table>
-</div>
+        </table>
+    </div>
