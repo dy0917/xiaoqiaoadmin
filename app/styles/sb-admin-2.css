@@ -401,3 +401,29 @@ margin:10px;
 .note-editor .note-editable{
     min-height: 500px;
 }
+
+
+
+
+
+/*========================pop up===============================*/
+
+
+.pop-up-bg{
+    position: fixed;
+z-index: 1000;
+background-color: rgba(255,255,255,.8);
+height: 100%;
+width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
