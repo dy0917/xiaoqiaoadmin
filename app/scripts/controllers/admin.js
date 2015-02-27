@@ -14,14 +14,13 @@ angular.module('xiaoqiaoApp')
             loginservice.checklogin();
             $scope.blog = {BlogStatusid: 3, BlogStatus: "draft"};
             $scope.blog.BlogStatus = "draft";
-
 //            $scope.blog = {BlogStatusid: 3, BlogStatus: "draft"};
             $scope.arrblogstatus = {};
             if (typeof blogservice.getBlog().Blogid != "undefined")
             {
                 $scope.blog = blogservice.getBlog();
             }
-            console.log($scope.blog);
+       
             $scope.arrblogstatus = $rootScope.arrblogstatus;
             if (!$rootScope.arrblogstatus)
             {
@@ -89,6 +88,7 @@ angular.module('xiaoqiaoApp')
 
             $scope.back = function() {
 
+console.log("asdfasdf");
                 $scope.blog = {};
                 $location.path('/blog/');
             };
@@ -96,7 +96,7 @@ angular.module('xiaoqiaoApp')
             {
                 $scope.save();
                 $location.path('/blog/');
-            }
+            };
 
             $scope.uploadimage = function() {
                 var files = $("#featureImg").prop("files");
@@ -123,13 +123,6 @@ angular.module('xiaoqiaoApp')
 
             };
 
-//            $scope.feedback = function() {
-//                var popinfo = {isoptionalbox: true, test: function(data) {
-//                        console.log(data);
-//                    }};
-//
-//                $scope.$emit('ispopup', popinfo);
-//            };
 
             $scope.delete = function() {
 

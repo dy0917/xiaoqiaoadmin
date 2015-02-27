@@ -36,10 +36,10 @@ var app = angular
                         templateUrl: 'views/blog.html',
                         controller: 'BlogCtrl'
                     })
-//                    .when('/contact', {
-//                        templateUrl: 'views/contact.html',
-//                        controller: 'ContactCtrl'
-//                    })
+                    .when('/slider', {
+                        templateUrl: 'views/slider.html',
+                        controller: 'SliderCtrl'
+                    })
                     .when('/product', {
                         templateUrl: 'views/product.html',
                         controller: 'ProductCtrl'

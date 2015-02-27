@@ -1,0 +1,28 @@
+<div id="container" style="padding-top:50px;" >
+    <div class="col-xs-3">
+        <div  class="btn btn-sm btn-success btn-block " type="button" ng-click="switchForm(true)" >New</div></div>
+    <table class="table">
+        <thead>
+        <th>Image</th>
+        <th>Link to</th>
+        <th>Title</th>
+        <th>Caption</th>
+        <th>Create Time</th>
+        <th>Operation</th>
+        </thead>
+        <tr ng-repeat="slider in sliders">
+            <td><img  ng-src="{{slider.FeatureIamge}}"></td>
+            <td>{{slider.linkto}}</td>
+            <td>{{slider.title}}</td>
+            <td>{{slider.desc}}</td>
+            <td>{{slider.lasteupdate}}</td>
+
+            <td><a ng-click="update(slider)">edit</a> <a ng-click="delete(slider)">delete</a></td>
+        </tr>
+    </table>
+</div>
+
+
+<div ng-if="isForm">
+    <div popupform></div>
+</div>
