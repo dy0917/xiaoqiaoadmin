@@ -1,0 +1,29 @@
+<div ng-click="swicthForm()" >
+
+    <div class="container" ng-controller="FormCtrl">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <button type="button" class="close" ng-click="swicthForm()"  aria-label="Close"><span ng-click="swicthForm()" >&times;</span></button>
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <div  class="btn btn-lg btn-success btn-block" type="submit" ng-click="test()">Save</div>
+                            <div ng-repeat="object in arr">
+
+                                <div class="form-group">
+                                    <label >object.label</label>
+                                    <input type="text" class="form-control"  placeholder="" value="">
+                                </div>
+
+                            </div>
+                            <!-- Change this to a button or input when using this as a form -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
