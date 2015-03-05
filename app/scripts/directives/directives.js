@@ -22,6 +22,11 @@ app.directive('popupbox', function() {
         templateUrl: 'views/partials/popupbox.html'
     };
 });
+app.directive('summernote', function() {
+    return{
+        templateUrl: 'views/partials/summernote.html'
+    };
+});
 
 app.directive('popupform', function() {
     return{

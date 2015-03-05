@@ -14,23 +14,34 @@
     </div>
     <div class="col-xs-3">
         <div  class="btn btn-sm btn-success btn-block " type="button" ng-click="newPost()" >New Post</div></div>
-        <table class="table">
+    <table class="table">
 
-            <thead>
-                <th>Title</th>
-                <th>Create Time</th>
-                <th>Feature Image</th>
-                <th>Operation</th>
-            </thead>
-            <tr ng-repeat="blog in blogs| filter:searchText">
+        <thead>
+        <th>Title</th>
+        <th>Create Time</th>
+        <th>Feature Image</th>
+        <th>Status:
+            <span class="dropdown">
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">All  <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <div ng-repeat="status in arrblogstatus">
+                        <li><a ng-click="filterbyStatus({{status}})">{{status.BlogStatus}}</a></li>
+                    </div>
+                </ul>
+            </span>
+        </th>
+        <th>Operation</th>
+        </thead>
+        <tr ng-repeat="blog in blogs| filter:searchText">
 
-                <td>{{blog.title}}</td>
-                <td>{{blog.createTime}}</td>
-                <td> <img  ng-src="{{blog.FeatureIamge}}"></td>
-                <td>   <a ng-click="update(blog)">edit</a>   <a ng-click="delete(blog)">delete</a></td>
+            <td>{{blog.title}}</td>
+            <td>{{blog.createTime}}</td>
+            <td> <img  class="set-feature-image" ng-src="{{blog.FeatureIamge}}"></td>
+            <td>{{blog.BlogStatus}}</td>
+            <td>   <a ng-click="update(blog)">edit</a>   <a ng-click="delete(blog)">delete</a></td>
 
-            </tr>
+        </tr>
 
 
-        </table>
-    </div>
+    </table>
+</div>

@@ -1,12 +1,15 @@
-<div ng-controller="AdminCtrl">
+<div>
     <main style="top: 100px;">
-        <div class="container-fluid" style="margin:20px 0;">
-            <input type="button" ng-click="back()" class="btn btn-default" value="back"/>
-            <input type="button" ng-click="save()" class="btn btn-success" value="save"/>
-            <input type="button" ng-click="saveandback()" class="btn btn-success" value="save & exit"/>
-            <input type="button" ng-click="delete()"  class="btn btn-danger" value="delete"/>
-        </div>
+       
         <div class="create-new-blog-section">
+            <div class="container-fluid" style="margin:20px 0;">
+                <input type="button" ng-click="back()" class="btn btn-default" value="back"/>
+
+                <input type="button" ng-click="save()" class="btn btn-success" value="save"/>
+                <input type="button" ng-click="saveandback()" class="btn btn-success" value="save & exit"/>
+                <input type="button" ng-click="delete()"  class="btn btn-danger" value="delete"/>
+            </div>
+            
             <input class="new-blog-title" type="text" ng-model="blog.title" placeholder="Please insert your title here.">
             <div class="dropdown">
                 <span><h2>Set your article status: &nbsp;</h2></span>

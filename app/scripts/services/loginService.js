@@ -9,10 +9,9 @@
  */
 app.service('servicecallback', function($http, $rootScope) {
     return {
-        http: function(url, method, data, successcallback, errorcallback, afterfunction)
+        http: function(url, method, data, successcallback, errorcallback)
         {
             $rootScope.$broadcast('isloading', true);
-
             $http({
                 url: url,
                 method: method,
@@ -20,19 +19,14 @@ app.service('servicecallback', function($http, $rootScope) {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(data, status, headers, config) {
                 //  $scope.persons = data; // assign  $scope.persons here as promise is resolved here 
-
                 successcallback(data);
             }).error(function(data, status, headers, config)
             {
                 // $scope.status = status;
                 $rootScope.$broadcast('isloading', false);
                 errorcallback(data);
-            }).then(function() {
-                $rootScope.$broadcast('isloading', false);
-                if (afterfunction) {
-                    afterfunction();
-                }
             });
+
         },
         test: function()
         {
@@ -40,11 +34,11 @@ app.service('servicecallback', function($http, $rootScope) {
         }
     };
 });
-app.factory('facotryblogs', function(servicecallback, $http) {
+app.factory('facotryblogs', function($http) {
 
     var factory = [];
     var blogs;
-    var that = this;
+
     factory.getblogs = function() {
         return $http.get(apiPath + "/blog/").then(function(result) {
             var blogs = result.data;
@@ -71,36 +65,30 @@ app.factory('blogservice', function($rootScope, servicecallback, $location) {
         {
             return blog;
         },
-        settitle: function(title) {
-            blog.title = title;
-        },
-        getTitle: function() {
-            return  blog.title;
-        },
         delete: function(thisblog)
         {
             var popinfo = {object: thisblog, body: "Are you sure want to do this", afteraction: function(blog) {
                     var path = apiPath + "/blog/delete";
                     servicecallback.http(path, "POST", blog, function() {
+
                         if ($rootScope.blogs) {
                             var index = $rootScope.blogs.indexOf(blog);
                             $rootScope.blogs.splice(index, 1);
                         }
                         $location.path('/blog/');
+
                     }, function() {
+
                     }, function() {
-                        var popinfo = {body: "Deleted"
-                        };
-                        $scope.$emit("ispopup", popinfo);
+
                     });
                 }};
-
             $rootScope.$broadcast('ispopup', popinfo);
-        },
-        removeFromList: function() {
         }
     };
 });
+
+
 
 app.factory('loginservice', function($cookieStore, $location, servicecallback, $rootScope) {
     return {
@@ -164,5 +152,63 @@ app.factory("imagereadservice", function($http, servicecallback) {
 
             }, reader.readAsDataURL(file);
         }
-    }
+    };
+
+
+
+});
+
+app.factory("statusservice", function($http, $rootScope, $q) {
+    return {
+        getstatus: function()
+        {
+
+            var getstatusMethod = $http.get(apiPath + "/blogstatus/");
+
+            return getstatusMethod;
+
+        },
+        checklogin: function()
+        {
+            if ($rootScope.user == null) {
+                $location.path('/');
+            }
+        }
+    };
+});
+
+app.factory("sliderservice", function(servicecallback, $rootScope) {
+    return {
+        newslilder: function()
+        {
+
+            var slider = {"imagelUrl": null,
+                "title": null,
+                "desc": null,
+                "linkto": null,
+                "createtime": null,
+                "lastupdatetime": null};
+
+            return slider;
+
+        }, delete: function(slider)
+        {
+            var popinfo = {object: slider, body: "Are you sure want to do this", afteraction: function(obj) {
+                    var path = apiPath + "/slider/delete";
+                    servicecallback.http(path, "POST", obj, function() {
+                        $rootScope.$broadcast('setformoff');
+//                        if ($rootScope.blogs) {
+//                            var index = $rootScope.blogs.indexOf(obj);
+//                            $rootScope.blogs.splice(index, 1);
+//                        }
+
+                    }, function() {
+
+                    }, function() {
+
+                    });
+                }};
+            $rootScope.$broadcast('ispopup', popinfo);
+        }
+    };
 });

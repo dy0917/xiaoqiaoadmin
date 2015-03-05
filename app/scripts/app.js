@@ -44,6 +44,10 @@ var app = angular
                         templateUrl: 'views/product.html',
                         controller: 'ProductCtrl'
                     })
+                    .when('/test', {
+                        templateUrl: 'views/test.html',
+                        controller: 'testCtrl'
+                    })
 //                    .when('/blog/:blogid', {
 //                        templateUrl: 'views/oneblog.html',
 //                        controller: 'OneBlogCtrl'

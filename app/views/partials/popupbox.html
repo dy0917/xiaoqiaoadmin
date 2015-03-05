@@ -1,4 +1,4 @@
-<div id="divpopup">
+<div id="divpopup" class="pop-up-bg">
 
     <div class="container">
         <div class="row">
@@ -7,14 +7,14 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">{{popup.title}}</h3>
                     </div>
-                    <div class="panel-body">
-                        <div>{{popup.body}}</div>
+                    <div class="panel-body" style="text-align:center;">
+                        <div><h4>{{popup.body}}</h4></div>
                         <div ng-repeat="info in popup.infolst">
                             <div class="item-title">{{info}}</div>
                         </div>
-                        <div ng-if="doesoptionboxdisplay">
-                            <div  class="btn btn-lg btn-success btn-block" ng-click="execute(false)" >Yes</div>
-                            <div  class="btn btn-lg btn-success btn-block" ng-click="notexc(false)" >No</div>
+                        <div ng-if="doesoptionboxdisplay" style="text-align: center; margin: 20px 0 10px;">
+                            <div  class="btn btn-danger " ng-click="execute()" >Yes</div>
+                            <div  class="btn btn-default " ng-click="notexc()" >No</div>
 
                         </div>
                     </div>

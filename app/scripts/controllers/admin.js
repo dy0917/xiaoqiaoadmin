@@ -9,7 +9,7 @@
  */
 angular.module('xiaoqiaoApp')
 
-        .controller('AdminCtrl', function($scope, $http, servicecallback, blogservice, loginservice, imagereadservice, $rootScope, $location) {
+        .controller('AdminCtrl', function($scope, $http, servicecallback, blogservice, loginservice, imagereadservice, $rootScope, $location, statusservice) {
 
             loginservice.checklogin();
             $scope.blog = {BlogStatusid: 3, BlogStatus: "draft"};
@@ -19,16 +19,19 @@ angular.module('xiaoqiaoApp')
             if (typeof blogservice.getBlog().Blogid != "undefined")
             {
                 $scope.blog = blogservice.getBlog();
+                if ($scope.blog.body) {
+                    $scope.blog.body = decodeURI(decodeURI($scope.blog.body));
+                }
             }
-       
+
             $scope.arrblogstatus = $rootScope.arrblogstatus;
             if (!$rootScope.arrblogstatus)
             {
-                $http.get(apiPath + "/blogstatus/").then(function(result) {
+                statusservice.getstatus().then(function(result) {
+
                     $rootScope.arrblogstatus = result.data;
                     $scope.arrblogstatus = $rootScope.arrblogstatus;
                 });
-
             }
             $('#summernote').summernote(
                     {
@@ -48,19 +51,13 @@ angular.module('xiaoqiaoApp')
 
                         }
                     }
-            ).code($scope.blog.body);
+            ).code(decodeURI($scope.blog.body));
 
 
 
             $scope.save = function() {
                 var sHTML = $('#summernote').code();
-                var find = '<';
-                var re = new RegExp(find, "g");
-                sHTML = sHTML.replace(re, "&lt;");
-                var find = '>';
-                var re = new RegExp(find, "g");
-                sHTML = sHTML.replace(re, "&gt;");
-
+                sHTML = encodeURI(sHTML);
                 var path = apiPath + "/blog/";
                 var method = "POST";
                 $scope.blog.body = sHTML;
@@ -71,16 +68,15 @@ angular.module('xiaoqiaoApp')
                 }
 
                 servicecallback.http(path, method, $scope.blog, function(data) {
-//                 
                     $scope.blog = data;
-                    if ($rootScope.blogs) {
-                        $rootScope.blogs.unshift($scope.blog);
-                    }
-                }, function() {
-                }, function() {
                     var popinfo = {body: "Saved"
                     };
-                    $scope.$emit("ispopup", popinfo);
+                    $rootScope.$broadcast('ispopup', popinfo);
+                    if ($rootScope.blogs && $scope.blog.Blogid) {
+                        $rootScope.blogs.push(data);
+
+                    }
+                }, function() {
                 }
                 );
 
@@ -88,7 +84,6 @@ angular.module('xiaoqiaoApp')
 
             $scope.back = function() {
 
-console.log("asdfasdf");
                 $scope.blog = {};
                 $location.path('/blog/');
             };

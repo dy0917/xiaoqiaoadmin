@@ -7,10 +7,11 @@
  * Controller of the xtripApp
  */
 angular.module('xiaoqiaoApp')
-        .controller('headerController', function($scope, loginservice, $rootScope) {
+        .controller('headerController', function($scope, loginservice, $rootScope, $q) {
             $scope.user = {};
             $scope.popup = {};
             $scope.islogindisplayed = true;
+//            $rootScope.ispopup = false;
             $scope.ispopup = false;
             $scope.doesoptionboxdisplay = false;
 
@@ -25,17 +26,15 @@ angular.module('xiaoqiaoApp')
                 loginservice.login($scope.user);
             };
 
-            $scope.execute = function(b)
+            $scope.execute = function()
             {
-
                 $scope.popup.afteraction($scope.popup.object);
-                $scope.ispopup = b;
-
+                $scope.ispopup = false;
             };
-            $scope.notexc = function(b)
+            $scope.notexc = function()
             {
                 $scope.popup = {};
-                $scope.ispopup = b;
+                $scope.ispopup = false;
             };
             $scope.$on('popuplogin', function(event, bool) {
 
@@ -65,6 +64,7 @@ angular.module('xiaoqiaoApp')
                     }, 1000);
                 }
             });
-
-
+            $scope.$on('setoffpopup', function(event, b) {
+                $scope.ispopup = b;
+            });
         });
