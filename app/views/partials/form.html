@@ -2,16 +2,16 @@
 <div id="formpopup" class="pop-up-bg">
     <div class="container" ng-controller="FormCtrl">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
+            <div class=".col-md-6 .col-md-offset-3">
+                <div class="login-panel panel panel-default" style="margin-top:3%;">
                     <div class="panel-heading">
                         <button type="button" class="close" ng-click="switchForm(false)"  aria-label="Close"><span  >&times;</span></button>
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
                         <form role="form">
-                            <div  class="btn btn-lg btn-success btn-block" type="submit" ng-click="save()">Save</div>
-                            <div  class="btn btn-lg btn-danger btn-block" type="submit" ng-click="delete()">Delete</div>
+                            <div  class="btn btn-success" type="submit" ng-click="save()">Save</div>
+                            <div  class="btn btn-danger" type="submit" ng-click="delete()">Delete</div>
                             <div ng-repeat="object in arr">
 
                                 <div ng-switch on="object.type">
@@ -24,8 +24,10 @@
                                     <div ng-switch-when="file">
                                         <div class="form-group">
                                             <label >{{object.label}}</label>
-                                            <input id="imgPicker" type="file" valid-file  ng-model="object.value"><input type="button" value="Upload" ng-click="upload()">
-                                            <img class="set-feature-image"  ng-src="{{object.value}}">
+                                            <input id="imgPicker"  type="file" valid-file  ng-model="object.value">
+                                            <img class="set-feature-image"  ng-src="{{object.value}}"/>
+                                            <input type="button" class="btn btn-primary" value="Upload" ng-click="upload()">
+
 
                                         </div>
                                     </div>
