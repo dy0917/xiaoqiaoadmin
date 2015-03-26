@@ -35,3 +35,30 @@ angular.module('xiaoqiaoApp')
                 console.log(args);
             });
         });
+
+
+angular.module('xiaoqiaoApp')
+        .controller('userCtrl', function($scope, servicecallback) {
+            $scope.getUsers = function() {
+                var path = apiPath + "/user";
+                servicecallback.http(path, "GET", null, function(data) {
+
+                    $scope.users = data;
+                }, function() {
+                });
+            };
+            $scope.getUsers();
+        });
+
+angular.module('xiaoqiaoApp')
+        .controller('subscriberCtrl', function($scope, servicecallback) {
+            $scope.getSubscribers = function() {
+                var path = apiPath + "/subscribe";
+                servicecallback.http(path, "GET", null, function(data) {
+
+                    $scope.subscribers = data;
+                }, function() {
+                });
+            };
+            $scope.getSubscribers();
+        });

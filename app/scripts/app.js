@@ -8,8 +8,10 @@
  *
  * Main module of the application.
  */
-//var apiPath = "http://local.test.api.xiaoqiaonz.com/";
 var apiPath = "http://test.api.xiaoqiaonz.com/index.php";
+//var apiPath = "http://local.test.api.xiaoqiaonz.com/";
+
+var developmode = true;
 var app = angular
         .module('xiaoqiaoApp', [
             'ngAnimate',
@@ -34,14 +36,24 @@ var app = angular
                         templateUrl: 'views/blog.html',
                         controller: 'BlogCtrl'
                     })
-//                    .when('/contact', {
-//                        templateUrl: 'views/contact.html',
-//                        controller: 'ContactCtrl'
-//                    })
+                    .when('/slider', {
+                        templateUrl: 'views/slider.html',
+                        controller: 'SliderCtrl'
+                    })
                     .when('/product', {
                         templateUrl: 'views/product.html',
                         controller: 'ProductCtrl'
                     })
+                    .when('/test', {
+                        templateUrl: 'views/test.html',
+                        controller: 'testCtrl'
+                    }).when('/users', {
+                templateUrl: 'views/users.html',
+                controller: 'userCtrl'
+            }).when('/subscribers', {
+                templateUrl: 'views/subscriber.html',
+                controller: 'subscriberCtrl'
+            })
 //                    .when('/blog/:blogid', {
 //                        templateUrl: 'views/oneblog.html',
 //                        controller: 'OneBlogCtrl'

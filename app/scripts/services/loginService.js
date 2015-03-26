@@ -7,85 +7,111 @@
  *
  * Main module of the application.
  */
-app.service('servicecallback', function($http) {
+app.service('servicecallback', function ($http, $rootScope) {
     return {
-        http: function(url, method, data, successcallback, errorcallback)
+        http: function (url, method, data, successcallback, errorcallback)
         {
+            $rootScope.$broadcast('isloading', true);
             $http({
                 url: url,
                 method: method,
                 data: data,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-            }).success(function(data, status, headers, config) {
+            }).success(function (data, status, headers, config) {
                 //  $scope.persons = data; // assign  $scope.persons here as promise is resolved here 
                 successcallback(data);
-            }).error(function(data, status, headers, config) {
+            }).error(function (data, status, headers, config)
+            {
                 // $scope.status = status;
+                $rootScope.$broadcast('isloading', false);
                 errorcallback(data);
-            }).then(function() {
-
             });
         },
-        test: function()
+        test: function ()
         {
             console.log("test");
         }
     };
 });
-app.factory('facotryblogs', function(servicecallback, $http) {
+app.factory('facotryblogs', function ($http) {
 
     var factory = [];
     var blogs;
-    var that = this;
-    factory.getblogs = function() {
-        return $http.get(apiPath + "/blog/").then(function(result) {
+    factory.getblogs = function () {
+        return $http.get(apiPath + "/blog/").then(function (result) {
             var blogs = result.data;
             return blogs;
         });
     };
-    factory.method1 = function() {
+    factory.method1 = function () {
         console.log(blogs);
     };
-    factory.method2 = function() {
+    factory.method2 = function () {
         console.log("method2");
     };
     return factory;
 });
-app.factory('blogservice', function() {
+app.factory('blogservice', function ($rootScope, servicecallback, $location) {
 
     var blog = {};
+
     return {
-        init: function(blogObj)
+        init: function (blogObj)
         {
             blog = blogObj;
         },
-        getBlog: function()
+        getBlog: function ()
         {
             return blog;
         },
-        settitle: function(title) {
-            blog.title = title;
+        delete: function (thisblog)
+        {
+            var popinfo = {object: thisblog, body: "Are you sure want to do this", afteraction: function (blog) {
+                    var path = apiPath + "/blog/delete";
+                    servicecallback.http(path, "POST", blog, function () {
+
+                        if ($rootScope.blogs) {
+                            var index = $rootScope.blogs.indexOf(blog);
+                            $rootScope.blogs.splice(index, 1);
+                        }
+                        $location.path('/blog/');
+                    }, function () {
+
+                    }, function () {
+
+                    });
+                }};
+            $rootScope.$broadcast('isinfo', popinfo);
         },
-        getTitle: function() {
-            return  blog.title;
+        gettypebyid: function (arr, id) {
+            var string = "";
+            if (id && arr) {
+                arr.forEach(function (temp) {
+                    if (temp.BlogTypeid === id)
+                    {
+
+                        string = temp.BlogType;
+                        return;
+                    }
+                });
+
+            }
+            return string;
         }
     };
 });
-
-app.factory('loginservice', function($cookieStore, $location, servicecallback, $rootScope) {
-
+app.factory('loginservice', function ($cookieStore, $location, servicecallback, $rootScope) {
     return {
-        login: function(blogObj)
+        login: function (blogObj)
         {
             var hash = CryptoJS.MD5(blogObj.password);
             blogObj.password = hash.toString();
             var path = apiPath + "/site/login";
             var json = JSON.stringify(blogObj);
-            servicecallback.http(path, "POST", json, function(data) {
+            servicecallback.http(path, "POST", json, function (data) {
 
                 if (data.error != "ERROR_USERNAME_INVALID")
                 {
-
                     $rootScope.user = data;
                     $rootScope.$broadcast("popuplogin", false);
                 }
@@ -95,17 +121,144 @@ app.factory('loginservice', function($cookieStore, $location, servicecallback, $
                 }
 
 
-            }, function() {
+            }, function () {
 
             });
-
-
         },
-        checklogin: function()
+        checklogin: function ()
         {
             if ($rootScope.user == null) {
                 $location.path('/');
             }
+        }
+    };
+});
+app.factory("imagereadservice", function ($http, servicecallback) {
+    return {
+        readAndUploadImage: function (file, photoName, imagetype, test)
+        {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+
+                var target = getTarget(e, "pural");
+                var src = target.result;
+                $http({
+                    url: apiPath + "/test/WriteImage",
+                    method: "POST",
+                    data: {"imagename": photoName, "src": src, "type": imagetype},
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function (data, status, headers, config) {
+
+                    test(data);
+                }).error(function (data, status, headers, config) {
+
+                });
+            }, reader.readAsDataURL(file);
+        }
+    };
+});
+app.factory("statusservice", function ($http, $rootScope) {
+    return {
+        getstatus: function ()
+        {
+
+            var getstatusMethod = $http.get(apiPath + "/blogstatus/");
+            return getstatusMethod;
+        }
+    };
+});
+app.factory("typeservice", function ($http, $rootScope) {
+
+    return {
+        gettype: function ()
+        {
+
+            var getstatusMethod = $http.get(apiPath + "/blogtype/");
+            return getstatusMethod;
+        }
+    };
+});
+app.factory("sliderservice", function (servicecallback, $rootScope, shareservice) {
+
+    var thisdslider = {"title": "nothting"};
+    return {
+        newslilder: function ()
+        {
+            var slider = {"imagelUrl": null,
+                "title": null,
+                "desc": null,
+                "linkto": null,
+                "createtime": null,
+                "lastupdatetime": null};
+            return slider;
+        },
+        setSlider: function (slider)
+        {
+            thisdslider = slider;
+        },
+        getSlider: function ()
+        {
+            return thisdslider;
+        },
+        delete: function (slider)
+        {
+
+            var popinfo = {object: slider, body: "Are you sure want to do this", afteraction: function (obj) {
+                    var path = apiPath + "/slider/delete";
+                    servicecallback.http(path, "POST", obj, function () {
+                        shareservice.broadcastItem('removeSlider', obj);
+                    }, function () {
+
+                    }, function () {
+
+                    });
+                }};
+            shareservice.broadcastItem('isinfo', popinfo);
+        }
+    }
+    ;
+});
+app.factory('shareservice', function ($rootScope) {
+
+    var obj = {};
+    return {
+        setObj: function (data)
+        {
+            obj = data;
+        },
+        getObj: function ()
+        {
+            return obj;
+        },
+        broadcastItem: function (event, value) {
+            $rootScope.$broadcast(event, value);
+        }
+    };
+});
+app.factory('encodeservice', function () {
+
+    var i = 0;
+    var obj = {};
+    return {
+        htmlEncode: function (html)
+        {
+
+            return document.createElement('a').appendChild(
+                    document.createTextNode(html)).parentNode.innerHTML;
+        },
+        htmlDecode: function (html)
+        {
+            str = "";
+            if (html) {
+                var find = '&lt;';
+                var re = new RegExp(find, 'g');
+                var str = html.replace(re, '<');
+                find = '&gt;';
+                var re = new RegExp(find, 'g');
+                str = str.replace(re, '>');
+            }
+            return str;
+
         }
     };
 });

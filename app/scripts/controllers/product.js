@@ -15,3 +15,8 @@ angular.module('xiaoqiaoApp')
 //                $scope.blogs = data;
 //            });
         });
+angular.module('xiaoqiaoApp')
+        .controller('testCtrl', function($scope, loginservice) {
+
+          $('#summernote').summernote();
+        });
