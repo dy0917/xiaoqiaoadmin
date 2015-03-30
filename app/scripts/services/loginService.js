@@ -8,28 +8,47 @@
  * Main module of the application.
  */
 app.service('servicecallback', function ($http, $rootScope) {
+    function private_error() {
+        alert("contactkingsley");
+    }
+    ;
     return {
-        http: function (url, method, data, successcallback, errorcallback)
+        http: function (url, method, data, successcallback, errorcallback, afterfunction)
         {
             $rootScope.$broadcast('isloading', true);
-            $http({
+            return  $http({
                 url: url,
                 method: method,
                 data: data,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function (data, status, headers, config) {
                 //  $scope.persons = data; // assign  $scope.persons here as promise is resolved here 
-                successcallback(data);
-            }).error(function (data, status, headers, config)
-            {
-                // $scope.status = status;
+                if (successcallback) {
+                    successcallback(data);
+                }
                 $rootScope.$broadcast('isloading', false);
-                errorcallback(data);
+            }).error(function (data, status, headers, config) {
+                private_error();
+                if (errorcallback) {
+                    errorcallback(data);
+                }
+                $rootScope.$broadcast('isloading', false);
+            }).then(function (data, status, headers, config) {
+                $rootScope.$broadcast('isloading', false);
+                if (afterfunction) {
+                    afterfunction(data);
+                }
             });
-        },
-        test: function ()
+        }, getmethod: function (url)
         {
-            console.log("test");
+
+            return $http.get(url).error(function () {
+                private_error();
+            }).then(function (result) {
+
+                var blogs = result;
+                return  blogs;
+            });
         }
     };
 });

@@ -142,6 +142,17 @@ angular.module('xiaoqiaoApp')
                 blogservice.delete($scope.blog);
             };
 
+            $scope.isvalid = function () {
+
+
+                if ($scope.blog.title == undefined)
+                {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+
 //            $('#summernote').summernote(
 //                    {
 //                        onImageUpload: function(files, editor, $editable) {

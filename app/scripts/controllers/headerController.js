@@ -7,11 +7,12 @@
  * Controller of the xtripApp
  */
 angular.module('xiaoqiaoApp')
-        .controller('headerController', function($scope, loginservice, $rootScope, $q) {
+        .controller('headerController', function ($scope, loginservice, $rootScope, $q) {
             $scope.user = {};
             $scope.popup = {};
-            $scope.islogindisplayed = true;
-//            $rootScope.ispopup = false;
+//            $scope.islogindisplayed = true;
+
+            $scope.isloading = true;
             $scope.ispopup = false;
             $scope.doesoptionboxdisplay = false;
 
@@ -22,58 +23,39 @@ angular.module('xiaoqiaoApp')
             }
 
 
-            $scope.login = function() {
+            $scope.login = function () {
                 loginservice.login($scope.user);
             };
 
-            $scope.$on('popuplogin', function(event, bool) {
+            $scope.$on('popuplogin', function (event, bool) {
 
                 $scope.islogindisplayed = bool;
             });
-            $scope.$on('isloading', function(event, bool) {
+            $scope.$on('isloading', function (event, bool) {
 
                 $scope.isloading = bool;
             });
-//            $scope.$on('ispopup', function(event, pop) {
-//                $scope.doesoptionboxdisplay = false;
-//                $scope.popup = pop;
-//                $scope.ispopup = true;
-//                if (pop.afteraction)//optional box
-//                {
-//                    $scope.doesoptionboxdisplay = true;
-//                }
-//                else {//info box
-//                    $("#divpopup").fadeToggle();
-//                    setTimeout(function() {
-//                        $("#divpopup").fadeOut(500, function() {
-//                            $scope.ispopup = false;
-//                        });
-//                    }, 1000);
-//                }
-//            });
-//            $scope.$on('setoffpopup', function(event, b) {
-//                $scope.ispopup = b;
-//            });
+
         });
 angular.module('xiaoqiaoApp')
-        .controller('popupCtrl', function($scope, loginservice, $rootScope, shareservice) {
+        .controller('popupCtrl', function ($scope, loginservice, $rootScope, shareservice) {
 
             $scope.popup = shareservice.getObj();
             console.log($scope.popup);
-            $scope.execute = function()
+            $scope.execute = function ()
             {
                 console.log($scope.popup);
                 $scope.popup.afteraction($scope.popup.object);
                 $scope.popup = {};
                 $scope.ispopup = false;
             };
-            $scope.notexc = function()
+            $scope.notexc = function ()
             {
                 $scope.popup = {};
                 $scope.ispopup = false;
             };
 
-            $scope.$on('isinfo', function(event, pop) {
+            $scope.$on('isinfo', function (event, pop) {
 
                 $scope.doesoptionboxdisplay = false;
                 $scope.popup = pop;
@@ -84,8 +66,8 @@ angular.module('xiaoqiaoApp')
                 }
                 else {//info box
                     $("#divpopup").fadeToggle();
-                    setTimeout(function() {
-                        $("#divpopup").fadeOut(500, function() {
+                    setTimeout(function () {
+                        $("#divpopup").fadeOut(500, function () {
                             $scope.ispopup = false;
                         });
                     }, 1000);

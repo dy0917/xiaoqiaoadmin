@@ -7,26 +7,31 @@
  * Controller of the xtripApp
  */
 angular.module('xiaoqiaoApp')
-        .controller('BlogCtrl', function ($scope, facotryblogs, $rootScope, blogservice, $location, loginservice, $http, statusservice,
+        .controller('BlogCtrl', function ($scope, facotryblogs, $rootScope, blogservice, $location, statusservice,
                 typeservice, $filter) {
-            $scope.blogs = $rootScope.blogs;
-            $scope.arrblogstatus = [];
-            loginservice.checklogin();
-          
+
+
+            $scope.init = function () {
+                
+                
+                
                 $scope.blogs = facotryblogs.getblogs().then(function (data) {
                     $rootScope.blogs = data;
                     $scope.blogs = $rootScope.blogs;
                 });
-        
 
-            statusservice.getstatus().then(function (result) {
-                $scope.arrblogstatus = [{BlogStatusid: "0", BlogStatus: "All"}];
-                $scope.arrblogstatus = $scope.arrblogstatus.concat(result.data);
-            });
-            typeservice.gettype().then(function (result) {
-                $scope.blogtypes = [{BlogTypeid: "0", BlogType: "All"}];
-                $scope.blogtypes = $scope.blogtypes.concat(result.data);
-            });
+
+                statusservice.getstatus().then(function (result) {
+                    $scope.arrblogstatus = [{BlogStatusid: "0", BlogStatus: "All"}];
+                    $scope.arrblogstatus = $scope.arrblogstatus.concat(result.data);
+                });
+                typeservice.gettype().then(function (result) {
+                    $scope.blogtypes = [{BlogTypeid: "0", BlogType: "All"}];
+                    $scope.blogtypes = $scope.blogtypes.concat(result.data);
+                });
+            };
+            $scope.init();
+
 
             $scope.filterbyStatus = function (condition) {
                 if (condition.BlogStatus === "All")
@@ -72,14 +77,14 @@ angular.module('xiaoqiaoApp')
             };
         });
 angular.module('xiaoqiaoApp')
-        .controller('SliderCtrl', function ($scope, $rootScope, loginservice, $http, sliderservice, shareservice, servicecallback) {
+        .controller('SliderCtrl', function ($scope, loginservice, $http, sliderservice, servicecallback) {
 
 
             $scope.isForm = false;
-            $http.get(apiPath + "/slider/").then(function (result) {
+            servicecallback.getmethod(apiPath + "/slider/").then(function (result) {
                 $scope.sliders = result.data;
             });
-            loginservice.checklogin();
+
             $scope.switchForm = function (b) {
                 $scope.isForm = b;
             };
