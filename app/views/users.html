@@ -1,0 +1,22 @@
+<div id="container" style="padding-top:50px;" >
+
+    <table class="table">
+        <thead>
+        <th>email</th>
+
+        <th>Create Time</th>
+        <th>Last Update Time</th>
+        </thead>
+        <tr ng-repeat="user in users">
+
+            <td>{{user.email}}</td>
+
+            <td>{{user.createTime}}</td>
+            <td>{{user.lastUpdateTime}}</td>
+            <!--<td><a ng-click="update(slider)">edit</a> <a ng-click="delete(slider)">delete</a></td>-->
+        </tr>
+    </table>
+</div>
+
+
+

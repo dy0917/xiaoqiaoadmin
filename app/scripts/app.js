@@ -22,7 +22,7 @@ var app = angular
             'ngTouch',
                     //  'angular-redactor'
         ])
-        .config(function($routeProvider) {
+        .config(function ($routeProvider) {
             $routeProvider
                     .when('/', {
                         templateUrl: 'views/main.html',
@@ -53,16 +53,14 @@ var app = angular
             }).when('/subscribers', {
                 templateUrl: 'views/subscriber.html',
                 controller: 'subscriberCtrl'
+            }).when('/loanratios', {
+                templateUrl: 'views/loanratios.html',
+                controller: 'loanratioCtrl'
             })
-//                    .when('/blog/:blogid', {
-//                        templateUrl: 'views/oneblog.html',
-//                        controller: 'OneBlogCtrl'
-//                    })
                     .otherwise({
                         redirectTo: '/'
                     });
 
-            //  redactorOptions.buttons = ['formatting', '|', 'bold', 'italic']; 
         });
 
 

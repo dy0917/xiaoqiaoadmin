@@ -13,8 +13,7 @@ angular.module('xiaoqiaoApp')
 
             $scope.init = function () {
                 
-                
-                
+               
                 $scope.blogs = facotryblogs.getblogs().then(function (data) {
                     $rootScope.blogs = data;
                     $scope.blogs = $rootScope.blogs;
@@ -154,8 +153,7 @@ angular.module('xiaoqiaoApp')
 
                 servicecallback.http(path, "POST", $scope.obj, function (data) {
 
-                    var popinfo = {body: "Slider Saved"
-                    };
+                    var popinfo = {body: "Slider Saved"};
                     if (!$scope.obj.sliderId)
                     {
                         shareservice.broadcastItem('addSlider', data);

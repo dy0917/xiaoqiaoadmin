@@ -1,0 +1,23 @@
+<div id="container" style="padding-top:50px;" >
+
+    <table class="table">
+        <thead>
+
+        <th>Bank Name</th>
+        <th>minimum Ratio</th>
+        <th>maximum Ratio</th>
+        <th>Last Update Time</th>
+        <th>Operation</th>
+        </thead>
+        <tr ng-repeat="bank in banks">
+            <td>{{bank.bankname}}</td>
+            <td><input type="text" ng-model="bank.minimum"></td>
+            <td><input type="text" ng-model="bank.maximum"></td>
+            <td>{{bank.LastUpdateTime}}</td>
+            <td><input type="button" ng-click="update(bank)" ng-disabled="!isdecimal(bank.minimum, bank.maximum)" value="update"></td>
+        </tr>
+    </table>
+</div>
+
+
+

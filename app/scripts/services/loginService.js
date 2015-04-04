@@ -281,3 +281,25 @@ app.factory('encodeservice', function () {
         }
     };
 });
+
+app.factory("formcheckservice", function () {
+    return {
+        isemail: function (email)
+        {
+            var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+            return re.test(email);
+        },
+        isfilled: function (input)
+        {
+            var b = true;
+            if (typeof input === 'undefined') {
+                b = false;
+            }
+            return b;
+        },
+        isdecimal: function (str) {
+            var re = /^\d+(\.\d{1,2})?$/;
+            return re.test(str);
+        }
+    };
+});
